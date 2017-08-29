@@ -3,7 +3,7 @@ var db = require('../models')
 module.exports = (app) => {
   app.get("/", (req, res) => {
     db.Burger.findAll().then((dbBurger) => {
-      res.render("index", dbBurger)
+      res.render("index", {burgers: dbBurger})
     })
   })
 
@@ -13,9 +13,9 @@ module.exports = (app) => {
     })
   })
 
-  app.update("/:id", (req, res) => {
+  app.put("/:id", (req, res) => {
 
-    db.Burger.update(req.body.devoured, {
+    db.Burger.update({devoured: 'true'}, {
       where: {
         id: req.params.id
       }

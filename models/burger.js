@@ -6,10 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     devoured: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
-    },
-    date: {
-      type: DataTypes.TIMESTAMP,
-      default: now(),
     }
   })
+  return Burger
 }
