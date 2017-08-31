@@ -23,4 +23,10 @@ module.exports = (app) => {
       res.redirect("/")
     })
   })
+
+  app.get("/api/burgers", (req, res) => {
+    db.Burger.findAll().then((dbBurger) => {
+      res.json(dbBurger)
+    })
+  })
 }
